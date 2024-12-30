@@ -1,6 +1,6 @@
 import urllib.request  # the lib that handles the url stuff
 
-def getLinesFromURL(url, session_cookie):
+def getDataFromURL(url, session_cookie):
     headers = {
         "Cookie": f"session={session_cookie}",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
@@ -14,5 +14,8 @@ def getLinesFromURL(url, session_cookie):
         print(f"HTTPError: {e.code} - {e.reason}")
     except urllib.error.URLError as e:
         print(f"URLError: {e.reason}")
+    
+    return data
 
-    return data.splitlines()
+def getLinesFromURL(url, session_cookie):
+    return getDataFromURL(url, session_cookie).splitlines()
