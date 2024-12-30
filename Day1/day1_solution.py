@@ -1,24 +1,8 @@
-import urllib.request  # the lib that handles the url stuff
+import url_parser.url_parser as parser
 
 # open url, press f12, switch to network tab, check input file, headers, copy cookie/session
-SESSION_COOKIE = "<fill this>"
-
-url = "https://adventofcode.com/2024/day/1/input"
-headers = {
-    "Cookie": f"session={SESSION_COOKIE}",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-}
-
-req = urllib.request.Request(url, headers=headers)
-try:
-    with urllib.request.urlopen(req) as response:
-        data = response.read().decode('utf-8')
-except urllib.error.HTTPError as e:
-    print(f"HTTPError: {e.code} - {e.reason}")
-except urllib.error.URLError as e:
-    print(f"URLError: {e.reason}")
-
-lines = data.splitlines()
+SESSION_COOKIE = ""
+lines = parser.getLinesFromURL("https://adventofcode.com/2024/day/1/input", SESSION_COOKIE)
 
 numbers1 = []
 numbers2 = []
