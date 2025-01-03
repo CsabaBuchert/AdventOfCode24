@@ -2,7 +2,7 @@ import url_parser.url_parser as parser
 from functools import cmp_to_key
 
 # open url, press f12, switch to network tab, check input file, headers, copy cookie/session
-SESSION_COOKIE = "53616c7465645f5f53804a4951342c163e051d91bbd5cddff0813cc3e1c7ad0cbb10665bca2affd5afb38e7020cd5ec4a63a31486699f9aafed613dbb81d8357"
+SESSION_COOKIE = ""
 data = parser.getDataFromURL("https://adventofcode.com/2024/day/5/input", SESSION_COOKIE)
 
 test_data = "47|53\n97|13\n97|61\n97|47\n75|29\n61|13\n75|53\n29|13\n97|29\n53|29\n61|53\n97|53\n61|29\n47|13\n75|47\n97|75\n47|61\n75|61\n47|29\n75|13\n53|13\n\n75,47,61,53,29\n97,61,53,29,13\n75,29,13\n75,97,47,61,53\n61,13,29\n97,13,75,29,47"
